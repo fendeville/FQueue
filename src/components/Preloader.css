@@ -1,0 +1,30 @@
+/* src/components/Preloader.css */
+
+.preloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7913e; /* Background color of your choice */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+  
+  .flash-text {
+    font-size: 3rem;
+    color: #001a36; /* Text color of your choice */
+    animation: flash 1.9s infinite;
+  }
+  
+  @keyframes flash {
+    0%, 10%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 5;
+    }
+  }
+  

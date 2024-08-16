@@ -1,24 +1,25 @@
 // src/components/Preloader.js
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './Preloader.css';
 
 const Preloader = () => {
-  const [visible, setVisible] = useState(true);
-
   useEffect(() => {
     const timer = setTimeout(() => {
-      setVisible(false);
-    }, 3000); // 3 seconds for preloader
+      document.querySelector('.preloader').classList.add('animate');
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    visible && (
-      <div className="preloader">
-        <h1 className="flash-text">Flash Queue</h1>
-      </div>
-    )
+    <div className="preloader">
+      <span className="flash">Flash</span>
+      <span className="queue">
+        <span className="dot"></span>
+        <span className="q">Q</span>
+        <span className="ueue">ueue</span>
+      </span>
+    </div>
   );
 };
 

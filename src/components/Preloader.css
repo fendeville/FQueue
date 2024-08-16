@@ -1,30 +1,87 @@
 /* src/components/Preloader.css */
-
 .preloader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f7913e; /* Background color of your choice */
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-  }
-  
-  .flash-text {
-    font-size: 3rem;
-    color: #001a36; /* Text color of your choice */
-    animation: flash 1.9s infinite;
-  }
-  
-  @keyframes flash {
-    0%, 10%, 100% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 5;
-    }
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  background-color: #7b64ffcb;
+  overflow: hidden;
+}
+
+.flash, .queue {
+  font-size: 4rem;
+  color: rgb(100, 3, 100);
+  text-decoration:#00ffdd;
+  text-decoration-line: #2d0133;
+  font-weight: bold;
+  position: absolute;
+  transition: all 1s ease;
+  opacity: 0;
+  text-shadow: 0 0 10px rgba(253, 145, 4, 0.863),
+               0 0 20px rgba(255, 255, 255, 0.664),
+               0 0 30px rgba(255, 255, 255, 0.4),
+               0 0 40px #00bfff,
+               0 0 70px #00bfff69,
+               0 0 80px #5d60ff4d,
+               0 0 50px #fcc28cb0;
+}
+
+.queue {
+  display: flex;
+  align-items: center;
+}
+
+.preloader.animate .flash {
+  transform: translateX(-130%);
+  opacity: 1;
+  animation: fadeInRight 1s forwards, flash 3s infinite 2s;
+}
+
+/*.preloader.animate .dot {
+  transform: translateX(-150%);
+  opacity: 1;
+  animation: fadeIn 1.5s forwards, flash 1s infinite 1.5s;
+}*/
+
+.preloader.animate .q {
+  transform: translateX(-100%);
+  opacity: 3;
+  animation: fadeIn 2s forwards, flash 5s infinite 2s;
+}
+
+.preloader.animate .ueue {
+  transform: translateX(-30%);
+  opacity: 1;
+  animation: fadeIn 2.5s forwards, flash 3s infinite 2s;
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateX(100%); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.flash, .queue {
+  animation: flash 1s infinite;
+}
+
+.flash {
+  transform: translateX(10);
+}
+
+/*.queue .dot {
+  transform: translateX(0);
+}*/
+
+.queue .q {
+  transform: translateX(5);
+}
+
+.queue .ueue {
+  transform: translateX(5);
+}

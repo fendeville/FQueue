@@ -8,7 +8,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000); // Matches the preloader time
+    }, 5000); // Adjust timing as needed
 
     return () => clearTimeout(timer);
   }, []);
@@ -19,9 +19,11 @@ function App() {
         <Preloader />
       ) : (
         <main>
-          {/* Your main app content can be added here if needed */}
           <h1>Welcome to Flash Queue</h1>
-           <h3>DO In A Flash</h3>
+          <h3>DO In A Flash</h3>
+          this app is mentally unstable 
+
+          {/* Your main app content */}
         </main>
       )}
     </div>
